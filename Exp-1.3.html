@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+  <style>
+    /* Default Theme (Light) */
+    :root {
+      --bg: white;
+      --text: black;
+      --header-bg: #4CAF50;
+      --sidebar-bg: #f1f1f1;
+      --footer-bg: #4CAF50;
+    }
+
+    /* Dark Theme overrides when checkbox is checked */
+    #themeToggle:checked ~ .dashboard {
+      --bg: #1e1e1e;
+      --text: #f5f5f5;
+      --header-bg: #333;
+      --sidebar-bg: #444;
+      --footer-bg: #222;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: all 0.3s ease;
+    }
+
+    .dashboard {
+      display: grid;
+      height: 100vh;
+      grid-template-columns: 200px 1fr;
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+      border: 1px solid #000;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .header {
+      grid-area: header;
+      background: var(--header-bg);
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+      background: var(--sidebar-bg);
+      padding: 20px;
+    }
+
+    .main {
+      grid-area: main;
+      padding: 20px;
+    }
+
+    .footer {
+      grid-area: footer;
+      text-align: center;
+      padding: 10px;
+      background: var(--footer-bg);
+      color: white;
+    }
+
+    .toggle-label {
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Hide checkbox */
+    #themeToggle {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <input type="checkbox" id="themeToggle" hidden>
+  <div class="dashboard">
+    <header class="header">
+      <h1>Admin Dashboard</h1>
+      <label for="themeToggle" class="toggle-label">Dark Mode</label>
+    </header>
+
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Users</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <h2>Welcome, Admin!</h2>
+      <p>This is the main content area. Add charts, tables, or reports here.</p>
+    </main>
+
+    <footer class="footer">
+      &copy; 2025 Admin Panel
+    </footer>
+  </div>
+</body>
+</html>
